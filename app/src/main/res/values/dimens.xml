@@ -2,4 +2,5 @@
 <resources>
     <dimen name="h1TextSize">40sp</dimen>
     <dimen name="h2TextSize">35sp</dimen>
+    <dimen name="topicTextSize">30sp</dimen>
 </resources>

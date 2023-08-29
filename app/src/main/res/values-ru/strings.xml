@@ -2,4 +2,5 @@
 <resources>
     <string name="new_game">Новая игра</string>
     <string name="continue_text">Продолжить</string>
+    <string name="start">Начать</string>
 </resources>
