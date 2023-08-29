@@ -5,37 +5,40 @@
     android:id="@+id/main_quiz_nav_graph"
     app:startDestination="@id/mainScreenFragment">
 
-
     <fragment
         android:id="@+id/mainScreenFragment"
-        android:name="com.example.quizapp.MainScreenFragment"
+        android:name="com.example.quizapp.ui.MainScreenFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" >
         <action
             android:id="@+id/action_mainScreenFragment_to_topicSelectionFragment"
             app:destination="@id/topicSelectionFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/topicSelectionFragment"
-        android:name="com.example.quizapp.TopicSelectionFragment"
+        android:name="com.example.quizapp.ui.TopicSelectionFragment"
         android:label="fragment_topic_selection"
         tools:layout="@layout/fragment_topic_selection" >
         <action
             android:id="@+id/action_topicSelectionFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.quizapp.GameFragment"
+        android:name="com.example.quizapp.ui.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFragment_to_resultsFragment"
             app:destination="@id/resultsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/resultsFragment"
-        android:name="com.example.quizapp.ResultsFragment"
+        android:name="com.example.quizapp.ui.ResultsFragment"
         android:label="fragment_results"
         tools:layout="@layout/fragment_results" />
+
 </navigation>
