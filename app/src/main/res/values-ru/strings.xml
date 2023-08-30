@@ -3,4 +3,10 @@
     <string name="new_game">Новая игра</string>
     <string name="continue_text">Продолжить</string>
     <string name="start">Начать</string>
+    <string name="choose_topic">Выберите тему</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="answerA">А: %s</string>
+    <string name="answerB">Б: %s</string>
+    <string name="answerC">В: %s</string>
+    <string name="answerD">Г: %s</string>
 </resources>

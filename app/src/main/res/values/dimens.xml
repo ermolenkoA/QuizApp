@@ -2,5 +2,9 @@
 <resources>
     <dimen name="h1TextSize">40sp</dimen>
     <dimen name="h2TextSize">35sp</dimen>
+    <dimen name="questionInfoTextSize">30sp</dimen>
+    <dimen name="questionTitleTextSize">23sp</dimen>
+    <dimen name="answerTextSize">20sp</dimen>
+    <dimen name="confirmButtonTextSize">25sp</dimen>
     <dimen name="topicTextSize">30sp</dimen>
 </resources>

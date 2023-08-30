@@ -35,6 +35,7 @@
         android:layout_marginTop="30dp"
         android:text="@string/continue_text"
         android:textSize="@dimen/h2TextSize"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/new_game_button" />

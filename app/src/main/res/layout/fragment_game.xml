@@ -1,13 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.GameFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+   <TextView
+       android:id="@+id/question_number_text_view"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="10dp"
+       android:layout_marginTop="10dp"
+       android:text="@string/questions_count"
+       android:textSize="@dimen/questionInfoTextSize"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       tools:text="4/10"/>
 
-</FrameLayout>
+   <TextView
+       android:id="@+id/time_text_view"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="10dp"
+       android:layout_marginEnd="10dp"
+       android:text="@string/time"
+       android:textSize="@dimen/questionInfoTextSize"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       tools:text="00:20"/>
+
+   <ImageView
+       android:id="@+id/question_image_view"
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       android:layout_marginTop="20dp"
+       android:importantForAccessibility="no"
+       app:layout_constraintDimensionRatio="1:1"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/time_text_view"
+       app:layout_constraintWidth_percent="0.6"
+       tools:src="@drawable/default_image" />
+
+   <TextView
+       android:id="@+id/question_title_text_view"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_margin="20dp"
+       android:textAlignment="center"
+       android:textSize="@dimen/questionTitleTextSize"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/question_image_view"
+       tools:text="There are two chairs, which one will you sit on?" />
+
+   <RadioGroup
+       android:id="@+id/answers_radio_group"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:gravity=""
+       android:layout_margin="30dp"
+       app:layout_constraintTop_toBottomOf="@id/question_title_text_view"
+       app:layout_constraintBottom_toTopOf="@id/confirm_button"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent">
+
+      <RadioButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/answerA"
+          android:textSize="@dimen/answerTextSize"
+          tools:text="A: Some answer"/>
+
+      <RadioButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/answerB"
+          android:textSize="@dimen/answerTextSize"
+          tools:text="B: Another answer"/>
+
+      <RadioButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/answerC"
+          android:textSize="@dimen/answerTextSize"
+          tools:text="C: Next answer"/>
+
+      <RadioButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/answerD"
+          android:textSize="@dimen/answerTextSize"
+          tools:text="D: Real answer"/>
+
+   </RadioGroup>
+
+   <Button
+       android:id="@+id/confirm_button"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:text="@string/confirm"
+       android:textSize="@dimen/confirmButtonTextSize"
+       app:layout_constraintBottom_toBottomOf="parent"
+       android:layout_marginBottom="10dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintWidth_percent="0.6"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

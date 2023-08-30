@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name" translatable="false">QuizApp</string>
+    <string name="questions_count" translatable="false">%d/%d</string>
+    <string name="time" translatable="false">%d:%d</string>
     <string name="new_game">New game</string>
     <string name="continue_text">Continue</string>
     <string name="start">Start</string>
+    <string name="choose_topic">Choose a topic</string>
+    <string name="confirm">Confirm</string>
+    <string name="answerA">A: %s</string>
+    <string name="answerB">B: %s</string>
+    <string name="answerC">C: %s</string>
+    <string name="answerD">D: %s</string>
 </resources>
