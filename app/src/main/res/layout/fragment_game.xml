@@ -24,7 +24,7 @@
        android:layout_height="wrap_content"
        android:layout_marginTop="10dp"
        android:layout_marginEnd="10dp"
-       android:text="@string/time"
+       android:text="@string/questions_time"
        android:textSize="@dimen/questionInfoTextSize"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toTopOf="parent"

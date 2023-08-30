@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">QuizApp</string>
     <string name="questions_count" translatable="false">%d/%d</string>
-    <string name="time" translatable="false">%d:%d</string>
+    <string name="questions_time" translatable="false">%d:%d</string>
     <string name="new_game">New game</string>
     <string name="continue_text">Continue</string>
     <string name="start">Start</string>
@@ -11,4 +11,10 @@
     <string name="answerB">B: %s</string>
     <string name="answerC">C: %s</string>
     <string name="answerD">D: %s</string>
+    <string name="results">Results</string>
+    <string name="results_time">Time: %d:%d</string>
+    <string name="correct_answers">Answers: %d/%d</string>
+    <string name="to_main_screen">Go to main screen</string>
+    <string name="try_again">Try again</string>
+    <string name="share_results">Share results</string>
 </resources>
