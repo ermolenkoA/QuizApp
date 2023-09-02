@@ -399,73 +399,70 @@ object UtilsRu {
             questions = arrayListOf(
                 Question(
                     id = 0,
-                    title = "",
-                    image = null,
+                    title = "Какому музыкальному исполнителю принадлежит альбом под названием \"?\"(знак вопроса)?",
+                    image = ,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Lil Peep",
+                        "Lil Pump",
+                        "Noize MC",
+                        "Scriptonite",
+                        "Макс Корж",
+                        "Michael Jackson"
                     ),
-                    realAnswer = ""
+                    realAnswer = "XXXTentacion"
                 ),
                 Question(
                     id = 1,
-                    title = "",
+                    title = "Какой музыкальный композитор написал cонату для фортепиано №14 (более известную под названием \"Лунная\")",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Вольфганг Амадей Моцарт",
+                        "Иоганн Себастьян Бах",
+                        "Джузеппе Верди",
+                        "Петр Чайковский",
+                        "Фридерик Шопен"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Людвиг ван Бетховен"
                 ),
                 Question(
                     id = 2,
-                    title = "",
-                    image = null,
+                    title = "Как называется прием игры на гитаре, при котором палец одновременно зажимает все струны?",
+                    image = ,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "диез",
+                        "бемоль",
+                        "бурре",
+                        "минор",
+                        "кварэ"
                     ),
-                    realAnswer = ""
+                    realAnswer = "баррэ"
                 ),
                 Question(
                     id = 3,
-                    title = "",
+                    title = "Один из популярных хитов Макса Коржа называется...",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Малиновый рассвет",
+                        "Сливочное масло",
+                        "Мудрец",
+                        "Пессимист",
+                        "Цвет настроения черный",
+                        "Погода"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Малиновый закат"
                 ),
                 Question(
                     id = 4,
-                    title = "",
+                    title = "В каком году вышла песня под названием \"Diamonds\"?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "1999",
+                        "2005",
+                        "2010",
+                        "2014",
+                        "2009"
                     ),
-                    realAnswer = ""
+                    realAnswer = "2012"
                 )
             )
         ),
@@ -477,73 +474,66 @@ object UtilsRu {
             questions = arrayListOf(
                 Question(
                     id = 0,
-                    title = "",
+                    title = "Как называется наша галактика?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Большая Медведица",
+                        "Бернарда",
+                        "Андромеда",
+                        "Сатурн"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Млечный Путь"
                 ),
                 Question(
                     id = 1,
-                    title = "",
+                    title = "Как называется ближайшая к Земле звезда(не считая Солнца)?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Сириус",
+                        "Барнарда",
+                        "Альфа Центавра",
+                        "Луна",
+                        "Марс"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Проксима Центавра"
                 ),
                 Question(
                     id = 2,
-                    title = "",
+                    title = "Как звали первое животное, выведенное на орбиту Земли?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Белка",
+                        "Стрелка",
+                        "Марс",
+                        "Снежок",
+                        "Каспер"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Лайка"
                 ),
                 Question(
                     id = 3,
-                    title = "",
+                    title = "В зависимости от массы звезды жизнь ее может закончиться по-разному." +
+                            " А чем она закончиться не может?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Черной дырой",
+                        "Нейтронной звездой",
+                        "Белым карликом"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Красным гигантом"
                 ),
                 Question(
                     id = 4,
-                    title = "",
+                    title = "Какая планета самая большая в Солнечной системе?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Марс",
+                        "Меркурий",
+                        "Сатурн",
+                        "Уран",
+                        "Нептун"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Юпитер"
                 )
             )
         ),
@@ -555,73 +545,64 @@ object UtilsRu {
             questions = arrayListOf(
                 Question(
                     id = 0,
-                    title = "",
-                    image = null,
+                    title = "Какой результат выведет следующая программа?",
+                    image = ,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Ошибку при выполнении",
+                        "Ошибку компиляции",
+                        "A is equal to NaN",
                     ),
-                    realAnswer = ""
+                    realAnswer = "A is equal to Infinity"
                 ),
                 Question(
                     id = 1,
-                    title = "",
-                    image = null,
+                    title = "Какой результат выведет следующая программа?",
+                    image = ,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "null",
+                        "Ошибку при выполнении",
+                        "Hello",
                     ),
-                    realAnswer = ""
+                    realAnswer = "Ошибку компиляции"
                 ),
                 Question(
                     id = 2,
-                    title = "",
-                    image = null,
+                    title = "Какой результат выведет следующая программа?",
+                    image = ,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Ошибка при выполнении",
+                        "Ошибка компиляции",
+                        "200",
+                        "100",
+                        "101"
                     ),
-                    realAnswer = ""
+                    realAnswer = "0"
                 ),
                 Question(
                     id = 3,
-                    title = "",
-                    image = null,
+                    title = "Какой результат выведет следующая программа?",
+                    image = ,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "0",
+                        "Ошибку компиляции",
+                        "128",
+                        "127",
+                        "Ошибка при выполнении"
                     ),
-                    realAnswer = ""
+                    realAnswer = "-128"
                 ),
                 Question(
                     id = 4,
-                    title = "",
+                    title = "\"val test = 33 to 42\".\n" +
+                            "Что такое to в приведенном примере?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Опечатка",
+                        "Ключевое слово для создания диапазона от 33 до 42",
+                        "Ключевое слово Kotlin для создания пары (33, 42)",
+                        "Инфиксная функция, создающая диапазон от 32 до 42 (33, 42)"
                     ),
-                    realAnswer = ""
+                    realAnswer = "Инфиксная функция, создающая пару (33, 42)"
                 )
             )
         )
