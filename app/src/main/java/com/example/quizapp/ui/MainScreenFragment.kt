@@ -10,7 +10,6 @@ import com.example.quizapp.R
 import com.example.quizapp.databinding.FragmentMainScreenBinding
 
 class MainScreenFragment : Fragment() {
-
     private var _binding: FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
 

@@ -1,15 +1,17 @@
 package com.example.quizapp.utils
 
+import android.net.Uri
 import com.example.quizapp.R
 import com.example.quizapp.data.Question
 import com.example.quizapp.data.Topic
 
+
 object UtilsRu {
-    val dataset = arrayListOf<Topic>(
+    val dataset = arrayListOf(
         Topic(
             id = 0,
             title = "Животные",
-            image = (R.drawable.animal_img).toString(),
+            image = getUrlString(R.drawable.animal_img),
             about = "В данной викторине вам нужно отвечать на вопросы по теме животных.",
             questions = arrayListOf(
                 Question(
@@ -88,7 +90,7 @@ object UtilsRu {
         Topic(
             id = 1,
             title = "Автомобили",
-            image = (R.drawable.car_img).toString(),
+            image = getUrlString(R.drawable.car_img),
             about = "В данной викторине вам нужно отвечать на вопросы по автомобильной тематике.",
             questions = arrayListOf(
                 Question(
@@ -167,7 +169,7 @@ object UtilsRu {
         Topic(
             id = 2,
             title = "Страны",
-            image = (R.drawable.earth_img).toString(),
+            image = getUrlString(R.drawable.earth_img),
             about = "В данной викторине вам нужно отвечать на вопросы о интересных фактах из других стран",
             questions = arrayListOf(
                 Question(
@@ -215,7 +217,7 @@ object UtilsRu {
                 Question(
                     id = 3,
                     title = "Как называется эта страна?",
-                    image = ,
+                    image = R.drawable.liechtenstein_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Люксембург",
                         "Ватикан",
@@ -245,7 +247,7 @@ object UtilsRu {
         Topic(
             id = 3,
             title = "Игры",
-            image = (R.drawable.game_img).toString(),
+            image = getUrlString(R.drawable.game_img),
             about = "В данной викторине вам нужно отвечать на вопросы о сфере компьютерных игр",
             questions = arrayListOf(
                 Question(
@@ -306,7 +308,7 @@ object UtilsRu {
                 Question(
                     id = 4,
                     title = "Как называется игра на фото?",
-                    image = ,
+                    image = R.drawable.witcher_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Assassin's Creed",
                         "Elden Ring",
@@ -322,13 +324,13 @@ object UtilsRu {
         Topic(
             id = 4,
             title = "Мемы",
-            image = (R.drawable.meme_img).toString(),
+            image = getUrlString(R.drawable.meme_img),
             about = "В данной викторине вам нужно отвечать на вопросы, связанные с популярными мемами в интернете.",
             questions = arrayListOf(
                 Question(
                     id = 0,
                     title = "В каких случаях используют этот мем?",
-                    image = ,
+                    image = R.drawable.bad_luck_brian_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Высмеять другого человека",
                         "Запикапить девушку",
@@ -339,41 +341,41 @@ object UtilsRu {
                 ),
                 Question(
                     id = 1,
-                    title = "Из какого фильма взят этот кадр?",
-                    image = ,
+                    title = "Как называется этот шедевр?",
+                    image = R.drawable.vzhuh_img.toString(),
                     fakeAnswers = arrayListOf(
-                        "Зеленая Миля",
-                        "Форест Гамп",
-                        "Спасти рядового Райна",
-                        "Шетое чуство",
-                        "Пираты Карибского моря",
-                        "Дикий, дикий Запад"
+                        "Исчезни",
+                        "Парирам",
+                        "Пшик",
+                        "Экспекто Патронум",
+                        "Кот-колдун"
                     ),
-                    realAnswer = "Баллада Бастера Скраггса"
+                    realAnswer = "Вжух"
                 ),
                 Question(
                     id = 2,
-                    title = "За что Уилл Смит ударил ведущего на “Оскаре”?",
+                    title = "Какое из этих чисел не является мемным?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "Он оскорбил его",
-                        "Он высмеял фильм с его участием",
-                        "Он проиграл спор",
-                        "Они поспорили"
+                        "228",
+                        "1337",
+                        "322",
+                        "300",
+                        "1488"
                     ),
-                    realAnswer = "Он оскорбил его жену"
+                    realAnswer = "77"
                 ),
                 Question(
                     id = 3,
                     title = "Что Илон Маск занес в офис Твиттера после того, как стал его владельцем?",
                     image = null,
                     fakeAnswers = arrayListOf(
-                        "Трон",
+                        "Колесо",
                         "Картонного себя",
                         "Логотип SpaceX",
                         "Красный ковер",
                         "Чайник",
-                        "Клетку"
+                        "Клетку с попугаем"
                     ),
                     realAnswer = "Раковину"
                 ),
@@ -394,13 +396,13 @@ object UtilsRu {
         Topic(
             id = 5,
             title = "Музыка",
-            image = (R.drawable.music_img).toString(),
+            image = getUrlString(R.drawable.music_img),
             about = "В данной викторине вам нужно отвечать на вопросы по теме \"Музыка\"",
             questions = arrayListOf(
                 Question(
                     id = 0,
                     title = "Какому музыкальному исполнителю принадлежит альбом под названием \"?\"(знак вопроса)?",
-                    image = ,
+                    image = R.drawable.question_mark_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Lil Peep",
                         "Lil Pump",
@@ -427,13 +429,13 @@ object UtilsRu {
                 Question(
                     id = 2,
                     title = "Как называется прием игры на гитаре, при котором палец одновременно зажимает все струны?",
-                    image = ,
+                    image = R.drawable.barre_img.toString(),
                     fakeAnswers = arrayListOf(
                         "диез",
                         "бемоль",
                         "бурре",
                         "минор",
-                        "кварэ"
+                        "кварм"
                     ),
                     realAnswer = "баррэ"
                 ),
@@ -469,7 +471,7 @@ object UtilsRu {
         Topic(
             id = 6,
             title = "Космос",
-            image = (R.drawable.space_img).toString(),
+            image = getUrlString(R.drawable.space_img),
             about = "В данной викторине вам нужно отвечать на вопросы о космосе",
             questions = arrayListOf(
                 Question(
@@ -486,8 +488,8 @@ object UtilsRu {
                 ),
                 Question(
                     id = 1,
-                    title = "Как называется ближайшая к Земле звезда(не считая Солнца)?",
-                    image = null,
+                    title = "Как называется ближайшая к Земле звезда (не считая Солнца)?",
+                    image = R.drawable.proxima_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Сириус",
                         "Барнарда",
@@ -500,7 +502,7 @@ object UtilsRu {
                 Question(
                     id = 2,
                     title = "Как звали первое животное, выведенное на орбиту Земли?",
-                    image = null,
+                    image = R.drawable.earth_orbit_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Белка",
                         "Стрелка",
@@ -540,13 +542,13 @@ object UtilsRu {
         Topic(
             id = 7,
             title = "Кодинг",
-            image = (R.drawable.coding_img).toString(),
+            image = getUrlString(R.drawable.coding_img),
             about = "В данной викторине вам нужно отвечать на вопросы по программированию",
             questions = arrayListOf(
                 Question(
                     id = 0,
                     title = "Какой результат выведет следующая программа?",
-                    image = ,
+                    image = R.drawable.cd1_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Ошибку при выполнении",
                         "Ошибку компиляции",
@@ -557,7 +559,7 @@ object UtilsRu {
                 Question(
                     id = 1,
                     title = "Какой результат выведет следующая программа?",
-                    image = ,
+                    image = R.drawable.cd2_img.toString(),
                     fakeAnswers = arrayListOf(
                         "null",
                         "Ошибку при выполнении",
@@ -568,7 +570,7 @@ object UtilsRu {
                 Question(
                     id = 2,
                     title = "Какой результат выведет следующая программа?",
-                    image = ,
+                    image = R.drawable.cd3_img.toString(),
                     fakeAnswers = arrayListOf(
                         "Ошибка при выполнении",
                         "Ошибка компиляции",
@@ -581,7 +583,7 @@ object UtilsRu {
                 Question(
                     id = 3,
                     title = "Какой результат выведет следующая программа?",
-                    image = ,
+                    image = R.drawable.cd4_img.toString(),
                     fakeAnswers = arrayListOf(
                         "0",
                         "Ошибку компиляции",
@@ -594,7 +596,7 @@ object UtilsRu {
                 Question(
                     id = 4,
                     title = "\"val test = 33 to 42\".\n" +
-                            "Что такое to в приведенном примере?",
+                            "Что такое \"to\" в приведенном примере?",
                     image = null,
                     fakeAnswers = arrayListOf(
                         "Опечатка",
@@ -608,4 +610,5 @@ object UtilsRu {
         )
     )
 
+    fun getUrlString(res: Int): String = Uri.parse("android.resource://com.example.quizapp/$res").toString()
 }

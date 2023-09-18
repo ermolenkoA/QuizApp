@@ -13,10 +13,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="5dp"
         android:text="@string/choose_topic"
         android:textSize="@dimen/h2TextSize" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,6 +30,7 @@
         tools:listitem="@layout/topics_item" />
 
     <Button
+        android:id="@+id/submit_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintWidth_percent="0.7"
