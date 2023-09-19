@@ -1,7 +1,5 @@
 package com.example.quizapp.ui
 
-
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,21 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.quizapp.MainActivity
-import com.example.quizapp.QuizApp
 import com.example.quizapp.adapters.TopicListAdapter
 import com.example.quizapp.databinding.FragmentTopicSelectionBinding
 import com.example.quizapp.domain.TopicSelectionViewModel
-import com.example.quizapp.domain.ViewModelFactory
-import com.example.quizapp.model.TopicRepository
-import com.example.quizapp.model.TopicRepositoryImpl
-
 
 class TopicSelectionFragment : Fragment() {
     private var _binding: FragmentTopicSelectionBinding? = null
-    private val viewModel: TopicSelectionViewModel by activityViewModels {
-        ViewModelFactory(TopicRepositoryImpl())
-    }
+    private val viewModel: TopicSelectionViewModel by activityViewModels()
     private var recyclerViewAdapter: TopicListAdapter? = null
     private val binding get() = _binding!!
 

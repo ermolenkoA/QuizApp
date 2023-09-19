@@ -1,8 +1,8 @@
 package com.example.quizapp
 
 import android.app.Application
-import com.example.quizapp.model.TopicRepository
-import com.example.quizapp.model.TopicRepositoryImpl
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class QuizApp: Application() {
 }
