@@ -15,12 +15,15 @@ import com.example.quizapp.R
 import com.example.quizapp.data.Topic
 import com.example.quizapp.databinding.TopicsItemBinding
 
-class TopicListAdapter(private val context: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TopicListAdapter(private val context: Context?):
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val _isTopicSelected = MutableLiveData(false)
-    val isTopicSelected: LiveData<Boolean> get() = _isTopicSelected
+    private var _selectedTopicId: Long? = 0
+    private var selectedView: View? = null
 
-    private var selectView: View? = null
+    val isTopicSelected: LiveData<Boolean> get() = _isTopicSelected
+    val selectedTopicId: Long? get() = _selectedTopicId
 
     private val differCallback = object : DiffUtil.ItemCallback<Topic>(){
         override fun areItemsTheSame(oldItem: Topic, newItem: Topic): Boolean {
@@ -37,26 +40,32 @@ class TopicListAdapter(private val context: Context?) : RecyclerView.Adapter<Rec
     inner class TopicItemViewHolder(private val binding: TopicsItemBinding):
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Topic) {
-            binding.root.setOnClickListener {
-                selectView?.setBackgroundColor(Color.WHITE)
-                selectView = if (selectView != it) {
-                    selectView?.setBackgroundColor(Color.WHITE)
-                    it.setBackgroundColor(Color.LTGRAY)
-                    _isTopicSelected.value = true
-                    it
-                } else {
-                    _isTopicSelected.value = false
-                    null
-                }
-            }
             with(binding)
             {
+                root.setOnClickListener {
+                    viewClicked(it, item.id)
+                }
                 topicTextView.text = item.title
                 context?.let {
                     Glide.with(it)
                         .load(item.image)
                         .into(topicImageView)
                 }
+            }
+        }
+
+        private fun viewClicked(view: View?, topicId: Long) {
+            selectedView = if (selectedView != view) {
+                selectedView?.setBackgroundColor(Color.WHITE)
+                view?.setBackgroundColor(Color.LTGRAY)
+                _isTopicSelected.value = true
+                _selectedTopicId = topicId
+                view
+            } else {
+                view?.setBackgroundColor(Color.WHITE)
+                _isTopicSelected.value = false
+                _selectedTopicId = null
+                null
             }
         }
     }

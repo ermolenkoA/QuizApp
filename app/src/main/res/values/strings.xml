@@ -17,11 +17,8 @@
     <string name="to_main_screen">Go to main screen</string>
     <string name="try_again">Try again</string>
     <string name="share_results">Share results</string>
-
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-    </string-array>
+    <string name="full_image">Full guestion image</string>
+    <string name="you_shure">Are you sure you want to leave the game?\nAll progress will be lost.</string>
+    <string name="leave">Leave</string>
+    <string name="cancel">Cancel</string>
 </resources>

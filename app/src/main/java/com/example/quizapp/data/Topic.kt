@@ -5,5 +5,5 @@ data class Topic(
     val title: String,
     val image: String,
     val about: String,
-    val questions: ArrayList<Question>
+    val questions: List<Question>
 )

@@ -217,7 +217,7 @@ object UtilsRu {
                 Question(
                     id = 3,
                     title = "Как называется эта страна?",
-                    image = R.drawable.liechtenstein_img.toString(),
+                    image = getUrlString(R.drawable.liechtenstein_img),
                     fakeAnswers = arrayListOf(
                         "Люксембург",
                         "Ватикан",
@@ -308,7 +308,7 @@ object UtilsRu {
                 Question(
                     id = 4,
                     title = "Как называется игра на фото?",
-                    image = R.drawable.witcher_img.toString(),
+                    image = getUrlString(R.drawable.witcher_img),
                     fakeAnswers = arrayListOf(
                         "Assassin's Creed",
                         "Elden Ring",
@@ -330,7 +330,7 @@ object UtilsRu {
                 Question(
                     id = 0,
                     title = "В каких случаях используют этот мем?",
-                    image = R.drawable.bad_luck_brian_img.toString(),
+                    image = getUrlString(R.drawable.bad_luck_brian_img),
                     fakeAnswers = arrayListOf(
                         "Высмеять другого человека",
                         "Запикапить девушку",
@@ -342,7 +342,7 @@ object UtilsRu {
                 Question(
                     id = 1,
                     title = "Как называется этот шедевр?",
-                    image = R.drawable.vzhuh_img.toString(),
+                    image = getUrlString(R.drawable.vzhuh_img),
                     fakeAnswers = arrayListOf(
                         "Исчезни",
                         "Парирам",
@@ -402,7 +402,7 @@ object UtilsRu {
                 Question(
                     id = 0,
                     title = "Какому музыкальному исполнителю принадлежит альбом под названием \"?\"(знак вопроса)?",
-                    image = R.drawable.question_mark_img.toString(),
+                    image = getUrlString(R.drawable.question_mark_img),
                     fakeAnswers = arrayListOf(
                         "Lil Peep",
                         "Lil Pump",
@@ -429,7 +429,7 @@ object UtilsRu {
                 Question(
                     id = 2,
                     title = "Как называется прием игры на гитаре, при котором палец одновременно зажимает все струны?",
-                    image = R.drawable.barre_img.toString(),
+                    image = getUrlString(R.drawable.barre_img),
                     fakeAnswers = arrayListOf(
                         "диез",
                         "бемоль",
@@ -489,7 +489,7 @@ object UtilsRu {
                 Question(
                     id = 1,
                     title = "Как называется ближайшая к Земле звезда (не считая Солнца)?",
-                    image = R.drawable.proxima_img.toString(),
+                    image = getUrlString(R.drawable.proxima_img),
                     fakeAnswers = arrayListOf(
                         "Сириус",
                         "Барнарда",
@@ -502,7 +502,7 @@ object UtilsRu {
                 Question(
                     id = 2,
                     title = "Как звали первое животное, выведенное на орбиту Земли?",
-                    image = R.drawable.earth_orbit_img.toString(),
+                    image = getUrlString(R.drawable.earth_orbit_img),
                     fakeAnswers = arrayListOf(
                         "Белка",
                         "Стрелка",
@@ -548,7 +548,7 @@ object UtilsRu {
                 Question(
                     id = 0,
                     title = "Какой результат выведет следующая программа?",
-                    image = R.drawable.cd1_img.toString(),
+                    image = getUrlString(R.drawable.cd1_img),
                     fakeAnswers = arrayListOf(
                         "Ошибку при выполнении",
                         "Ошибку компиляции",
@@ -559,7 +559,7 @@ object UtilsRu {
                 Question(
                     id = 1,
                     title = "Какой результат выведет следующая программа?",
-                    image = R.drawable.cd2_img.toString(),
+                    image = getUrlString(R.drawable.cd2_img),
                     fakeAnswers = arrayListOf(
                         "null",
                         "Ошибку при выполнении",
@@ -570,7 +570,7 @@ object UtilsRu {
                 Question(
                     id = 2,
                     title = "Какой результат выведет следующая программа?",
-                    image = R.drawable.cd3_img.toString(),
+                    image = getUrlString(R.drawable.cd3_img),
                     fakeAnswers = arrayListOf(
                         "Ошибка при выполнении",
                         "Ошибка компиляции",
@@ -583,7 +583,7 @@ object UtilsRu {
                 Question(
                     id = 3,
                     title = "Какой результат выведет следующая программа?",
-                    image = R.drawable.cd4_img.toString(),
+                    image = getUrlString(R.drawable.cd4_img),
                     fakeAnswers = arrayListOf(
                         "0",
                         "Ошибку компиляции",
