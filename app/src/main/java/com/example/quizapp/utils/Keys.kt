@@ -1,6 +1,7 @@
 package com.example.quizapp.utils
 
 object Keys {
-    val TOPIC_ID_KEY = "TopicID"
-    val GAME_QUESTION_KEY = "GameQuestions"
+    const val TOPIC_ID_KEY = "TopicID"
+    const val GAME_QUESTION_KEY = "GameQuestions"
+    const val SPENT_TIME_KEY = "SpentTime"
 }

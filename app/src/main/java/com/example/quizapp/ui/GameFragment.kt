@@ -29,7 +29,6 @@ class GameFragment : Fragment() {
     private val binding get() = _binding!!
     @Inject
     lateinit var viewModelAssistedFactory: GameViewModel.Factory
-    @FragmentScoped
     private val viewModel: GameViewModel by viewModels {
         GameViewModel.provideFactory(
             viewModelAssistedFactory,
@@ -115,7 +114,7 @@ class GameFragment : Fragment() {
 
     private fun startTimer() {
         with(binding) {
-            chronometer.base = SystemClock.elapsedRealtime();
+            chronometer.base = SystemClock.elapsedRealtime()
             viewModel.baseTime = chronometer.base
             chronometer.start()
         }
@@ -244,7 +243,10 @@ class GameFragment : Fragment() {
     private fun endGame() {
         findNavController().apply {
             popBackStack()
-            navigate(R.id.resultsFragment, viewModel.createEndGameBundle())
+            navigate(
+                R.id.resultsFragment,
+                viewModel.createEndGameBundle(SystemClock.elapsedRealtime())
+            )
         }
     }
 

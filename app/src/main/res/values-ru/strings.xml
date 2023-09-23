@@ -10,7 +10,7 @@
     <string name="answerC">В: %s</string>
     <string name="answerD">Г: %s</string>
     <string name="results">Результаты</string>
-    <string name="results_time">Время: %d:%d</string>
+    <string name="results_time">Время: %02d:%02d</string>
     <string name="correct_answers">Ответы: %d/%d</string>
     <string name="to_main_screen">На главный экран</string>
     <string name="try_again">Пройти заново</string>
@@ -19,4 +19,6 @@
     <string name="you_shure">Вы уверены, что хотите покинуть игру?\nВесь прогресс будет утерян.</string>
     <string name="leave">Покинуть</string>
     <string name="cancel">Отмена</string>
+    <string name="share_results_with">Поделиться через:</string>
+    <string name="text_for_share">Я набрал %d из %d очков в приложении QuizApp.\nА сколько сможешь набрать ты?</string>
 </resources>

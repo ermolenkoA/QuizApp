@@ -14,8 +14,7 @@ class Answers(
     ) : Parcelable {
 
     val answerOption: Option? get() = _answerOption
-    val correctIndex: Int get() = _correctIndex
-
+    val correctOption: Option get() = Option.getOption(_correctIndex)!!
 
     fun answer(option: Option?) {
         _answerOption = option

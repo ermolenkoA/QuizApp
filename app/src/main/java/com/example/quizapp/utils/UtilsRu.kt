@@ -317,7 +317,7 @@ object UtilsRu {
                         "Dark Souls",
                         "God of War"
                     ),
-                    realAnswer = "Witcher"
+                    realAnswer = "The Witcher"
                 )
             )
         ),
@@ -610,5 +610,5 @@ object UtilsRu {
         )
     )
 
-    fun getUrlString(res: Int): String = Uri.parse("android.resource://com.example.quizapp/$res").toString()
+    private fun getUrlString(res: Int): String = Uri.parse("android.resource://com.example.quizapp/$res").toString()
 }
