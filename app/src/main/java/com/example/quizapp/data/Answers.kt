@@ -1,39 +1,21 @@
 package com.example.quizapp.data
 
-import android.util.Log
+import android.os.Parcel
+import android.os.Parcelable
+import android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE
+import kotlinx.parcelize.Parcelize
+import java.util.ArrayList
 
-class Answers(fakeAnswers: List<String>, correctAnswer: String) {
-    private val answers: MutableList<String>
-    private var _answerOption: Option? = null
+@Parcelize
+class Answers(
+    private val answers: MutableList<String>,
+    private var _answerOption: Option?,
+    private var _correctIndex: Int
+    ) : Parcelable {
 
-    val correctIndex: Int
-    val answerIndex: Int? get() = _answerOption?.value
+    val answerOption: Option? get() = _answerOption
+    val correctIndex: Int get() = _correctIndex
 
-    enum class Option(val value: Int){
-        A(0), B(1), C(2), D(3);
-        companion object{
-            fun getOption(index: Int): Option? = when (index) {
-                0 -> A
-                1 -> B
-                2 -> C
-                3 -> D
-                else -> null
-            }
-        }
-    }
-
-    init {
-        if (fakeAnswers.size >= 3) {
-            answers = mutableListOf<String>()
-                .apply {
-                    addAll(fakeAnswers.shuffled().subList(0, 3))
-                }
-            correctIndex = (0..3).random()
-            answers.add(correctIndex, correctAnswer)
-        } else {
-            throw ExceptionInInitializerError("Answers: few fake answers for init")
-        }
-    }
 
     fun answer(option: Option?) {
         _answerOption = option
@@ -43,10 +25,21 @@ class Answers(fakeAnswers: List<String>, correctAnswer: String) {
         return answers[option.value]
     }
 
-    fun getCurrentAnswer(): Option? {
-        answerIndex?.let {index ->
-            return Option.getOption(index)
+    companion object {
+        fun new(fakeAnswers: List<String>, correctAnswer: String): Answers{
+            if (fakeAnswers.size >= 3) {
+                val newAnswers = mutableListOf<String>()
+                    .apply {
+                        addAll(fakeAnswers.shuffled().subList(0, 3))
+                    }
+
+                val correctIndex = (0..3).random()
+                newAnswers.add(correctIndex, correctAnswer)
+                return Answers(newAnswers, null, correctIndex)
+            } else {
+                throw ExceptionInInitializerError("Answers: few fake answers for init")
+            }
         }
-        return null
     }
+
 }

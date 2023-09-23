@@ -8,17 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.navigation.navGraphViewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.quizapp.MainActivity
 import com.example.quizapp.R
 import com.example.quizapp.data.Answers
+import com.example.quizapp.data.Option
 import com.example.quizapp.databinding.FragmentGameBinding
 import com.example.quizapp.domain.GameViewModel
+import com.example.quizapp.utils.Keys.TOPIC_ID_KEY
 import com.example.quizapp.utils.OnSwipeTouchListener
-import com.example.quizapp.utils.Utils.TOPIC_ID_KEY
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
 import javax.inject.Inject
@@ -68,6 +68,7 @@ class GameFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        (activity as? MainActivity)?.onGameFragment = false
         viewModelStore.clear()
         _binding = null
     }
@@ -94,6 +95,9 @@ class GameFragment : Fragment() {
                     )
                     setupAnswers(question.answers)
                 }
+            }
+            if(it == null) {
+                endGame()
             }
         }
     }
@@ -157,10 +161,10 @@ class GameFragment : Fragment() {
                 checkedRadioButton = button
                 viewModel.choseOption(
                     when(button) {
-                        optionARadioButton -> Answers.Option.A
-                        optionBRadioButton -> Answers.Option.B
-                        optionCRadioButton -> Answers.Option.C
-                        else -> Answers.Option.D
+                        optionARadioButton -> Option.A
+                        optionBRadioButton -> Option.B
+                        optionCRadioButton -> Option.C
+                        else -> Option.D
                     }
                 )
             }
@@ -203,21 +207,21 @@ class GameFragment : Fragment() {
             checkedRadioButton = null
             optionARadioButton.text = resources.getString(
                 R.string.answerA,
-                answers.getAnswerText(Answers.Option.A),
+                answers.getAnswerText(Option.A),
             )
             optionBRadioButton.text = resources.getString(
                 R.string.answerB,
-                answers.getAnswerText(Answers.Option.B),
+                answers.getAnswerText(Option.B),
             )
             optionCRadioButton.text = resources.getString(
                 R.string.answerC,
-                answers.getAnswerText(Answers.Option.C),
+                answers.getAnswerText(Option.C),
             )
             optionDRadioButton.text = resources.getString(
                 R.string.answerD,
-                answers.getAnswerText(Answers.Option.D),
+                answers.getAnswerText(Option.D),
             )
-            answers.getCurrentAnswer()?.let {currentAnswer ->
+            answers.answerOption?.let {currentAnswer ->
                 viewModel.withoutAnimation = true
                 selectRadioButton(currentAnswer)
                 return
@@ -226,14 +230,21 @@ class GameFragment : Fragment() {
     }
 
 
-    private fun selectRadioButton(option: Answers.Option) {
+    private fun selectRadioButton(option: Option) {
         with(binding) {
             checkedRadioButton = when (option) {
-                Answers.Option.A -> optionARadioButton
-                Answers.Option.B -> optionBRadioButton
-                Answers.Option.C -> optionCRadioButton
-                Answers.Option.D -> optionDRadioButton
+                Option.A -> optionARadioButton
+                Option.B -> optionBRadioButton
+                Option.C -> optionCRadioButton
+                Option.D -> optionDRadioButton
             }
+        }
+    }
+
+    private fun endGame() {
+        findNavController().apply {
+            popBackStack()
+            navigate(R.id.resultsFragment, viewModel.createEndGameBundle())
         }
     }
 

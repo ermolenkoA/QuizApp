@@ -1,12 +1,10 @@
 package com.example.quizapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,7 +12,7 @@ import com.example.quizapp.R
 import com.example.quizapp.adapters.TopicListAdapter
 import com.example.quizapp.databinding.FragmentTopicSelectionBinding
 import com.example.quizapp.domain.TopicSelectionViewModel
-import com.example.quizapp.utils.Utils.TOPIC_ID_KEY
+import com.example.quizapp.utils.Keys.TOPIC_ID_KEY
 
 class TopicSelectionFragment : Fragment() {
     private var _binding: FragmentTopicSelectionBinding? = null

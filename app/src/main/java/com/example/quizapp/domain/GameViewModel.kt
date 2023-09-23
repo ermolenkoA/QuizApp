@@ -1,15 +1,17 @@
 package com.example.quizapp.domain
 
 
-import android.content.Context
+import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.data.Answers
 import com.example.quizapp.data.GameQuestion
+import com.example.quizapp.data.Option
 import com.example.quizapp.data.Topic
 import com.example.quizapp.model.TopicRepository
+import com.example.quizapp.utils.Keys.GAME_QUESTION_KEY
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -50,7 +52,6 @@ class GameViewModel @AssistedInject constructor(
     val currentQuestionIndex: Int get() = _currentQuestionIndex
     var baseTime = 0L
     var withoutAnimation = false
-    val isGameEnded: LiveData<Boolean> get() = _isGameEnded
 
     fun toNextQuestion() {
         if (remainingQuestions.size > 1) {
@@ -96,10 +97,10 @@ class GameViewModel @AssistedInject constructor(
 
     fun confirmAnswer() {
         allQuestions[currentQuestionIndex].answers.answer(
-            currentQuestion.value?.answers?.getCurrentAnswer()
+            currentQuestion.value?.answers?.answerOption
         )
         if (numberOfQuestions == 1) {
-            endGame()
+            _currentQuestion.value = null
             return
         }
         val currentIndex = currentQuestionIndex
@@ -109,13 +110,12 @@ class GameViewModel @AssistedInject constructor(
         }
     }
 
-    fun choseOption(option: Answers.Option?) {
+    fun choseOption(option: Option?) {
         _currentQuestion.value?.answers?.answer(option)
     }
 
-    private fun endGame() {
-
-    }
+    fun createEndGameBundle(): Bundle =
+        Bundle().apply { putParcelableArrayList(GAME_QUESTION_KEY, allQuestions as ArrayList) }
 
     private fun createGameQuestionList(topic: Topic?): List<GameQuestion> {
         var newQuestionList = listOf<GameQuestion>()
@@ -126,7 +126,7 @@ class GameViewModel @AssistedInject constructor(
                 GameQuestion(
                     question.title,
                     question.image,
-                    Answers(question.fakeAnswers, question.realAnswer)
+                    Answers.new(question.fakeAnswers, question.realAnswer)
                 )
             }
         }
