@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TopicSelectionViewModel @Inject constructor(
-    private val repository: TopicRepository
+    repository: TopicRepository
 ): ViewModel() {
     private val _topics: MutableLiveData<List<Topic>> = MutableLiveData(repository.getAll())
     val topics: LiveData<List<Topic>> get() = _topics

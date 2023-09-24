@@ -28,8 +28,7 @@ class ResultsFragment : Fragment() {
     @Inject
     lateinit var viewModelAssistedFactory: ResultsViewModel.Factory
     private val viewModel: ResultsViewModel by viewModels {
-        val list =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+        val list = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
             requireArguments().getParcelableArrayList(GAME_QUESTION_KEY, GameQuestion::class.java)
         } else{
             requireArguments().getParcelableArrayList(GAME_QUESTION_KEY)
@@ -71,11 +70,15 @@ class ResultsFragment : Fragment() {
 
     private fun setButtonsListeners() {
         with(binding) {
+            viewResultsButton.setOnClickListener {
+                navigateToGameFragmentForResults()
+            }
             tryAgainButton.setOnClickListener {
                 navigateToGameFragment()
             }
             toMainScreenButton.setOnClickListener {
                 findNavController().popBackStack()
+                viewModelStore.clear()
             }
             shareResultsButton.setOnClickListener {
                 clickedShareResultsButton()
@@ -91,6 +94,14 @@ class ResultsFragment : Fragment() {
                 viewModel.createBundleForGameFragment()
             )
         }
+    }
+
+    private fun navigateToGameFragmentForResults() {
+        findNavController().navigate(
+            R.id.gameFragment,
+            viewModel.createBundleForGameFragmentResults()
+        )
+
     }
 
     private fun clickedShareResultsButton() {
@@ -128,6 +139,4 @@ class ResultsFragment : Fragment() {
             viewModel.totalTime.get(Calendar.SECOND)
         )
     }
-
-
 }

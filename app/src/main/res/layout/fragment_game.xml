@@ -38,7 +38,7 @@
        app:layout_constraintDimensionRatio="1:1"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/chronometer"
+       app:layout_constraintTop_toBottomOf="@id/question_number_text_view"
        app:layout_constraintWidth_percent="0.6"
        tools:src="@drawable/default_image" />
 
@@ -71,7 +71,7 @@
           android:layout_height="wrap_content"
           android:text="@string/answerA"
           android:textSize="@dimen/answerTextSize"
-          tools:text="A: Some answer"/>
+          tools:text="A: Some answer" />
 
       <RadioButton
           android:id="@+id/option_b_radio_button"

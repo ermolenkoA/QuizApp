@@ -2,7 +2,6 @@ package com.example.quizapp.domain
 
 
 import android.os.Bundle
-import android.os.Parcelable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.data.Answers
 import com.example.quizapp.data.GameQuestion
 import com.example.quizapp.data.Option
-import com.example.quizapp.data.Question
 import com.example.quizapp.data.Topic
 import com.example.quizapp.model.TopicRepository
 import com.example.quizapp.utils.Keys.GAME_QUESTION_KEY
@@ -22,17 +20,17 @@ import dagger.assisted.AssistedInject
 
 class GameViewModel @AssistedInject constructor(
     repository: TopicRepository,
-    @Assisted private val topicId: Long)
-    : ViewModel() {
+    @Assisted gameQuestions: List<GameQuestion>?,
+    @Assisted private val topicId: Long?,
+    ) : ViewModel() {
 
-    private val topic = repository.getById(topicId)
-    private val allQuestions = createGameQuestionList(topic)
-    private val remainingQuestions = mutableListOf<Pair<GameQuestion, Int>>()
-        .apply {
-            allQuestions.forEachIndexed { index, question ->
-                add(Pair(question, index))
-            }
+    private val allQuestions = gameQuestions
+        ?: createGameQuestionList(repository.getById(topicId!!))
+    private val remainingQuestions = mutableListOf<Pair<GameQuestion, Int>>().apply {
+        allQuestions.forEachIndexed { index, question ->
+            add(Pair(question, index))
         }
+    }
     private val _currentQuestion = MutableLiveData<GameQuestion?>(
         if (remainingQuestions.isNotEmpty()) {
             remainingQuestions.first().first
@@ -52,6 +50,7 @@ class GameViewModel @AssistedInject constructor(
     val currentQuestionIndex: Int get() = _currentQuestionIndex
     var baseTime = 0L
     var withoutAnimation = false
+    val isGameEnded = gameQuestions != null
 
     fun toNextQuestion() {
         if (remainingQuestions.size > 1) {
@@ -116,10 +115,9 @@ class GameViewModel @AssistedInject constructor(
 
     fun createEndGameBundle(finalTime: Long): Bundle =
         Bundle().apply {
-            var list =
             putParcelableArrayList(GAME_QUESTION_KEY, allQuestions as ArrayList)
             putLong(SPENT_TIME_KEY, finalTime - baseTime)
-            putLong(TOPIC_ID_KEY, topicId)
+            putLong(TOPIC_ID_KEY, topicId!!)
         }
 
     private fun createGameQuestionList(topic: Topic?): List<GameQuestion> {
@@ -138,18 +136,33 @@ class GameViewModel @AssistedInject constructor(
         return newQuestionList.shuffled()
     }
 
+    fun prepareForResults() {
+        remainingQuestions.apply {
+            clear()
+            allQuestions.forEachIndexed { index, question ->
+                add(Pair(question, index))
+            }
+            _currentQuestionIndex = remainingQuestions.first().second
+            _currentQuestion.value = remainingQuestions.first().first
+        }
+    }
+
     @AssistedFactory
     interface Factory {
-        fun create(topicId: Long): GameViewModel
+        fun create(
+            gameQuestions: List<GameQuestion>?,
+            topicId: Long?): GameViewModel
     }
 
     @Suppress("UNCHECKED_CAST")
     companion object {
-        fun provideFactory( assistedFactory: Factory,
-            topicId: Long
+        fun provideFactory(
+            assistedFactory: Factory,
+            gameQuestions: List<GameQuestion>?,
+            topicId: Long?
         ): ViewModelProvider.Factory = object: ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return assistedFactory.create(topicId) as T
+                return assistedFactory.create(gameQuestions, topicId) as T
             }
         }
     }

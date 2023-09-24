@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.data.GameQuestion
+import com.example.quizapp.utils.Keys
 import com.example.quizapp.utils.Keys.TOPIC_ID_KEY
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -12,7 +13,7 @@ import java.util.Calendar
 import java.util.Date
 
 class ResultsViewModel @AssistedInject constructor(
-    @Assisted val gameQuestions: List<GameQuestion>,
+    @Assisted private val gameQuestions: List<GameQuestion>,
     @Assisted("topicId") val topicId: Long,
     @Assisted("spentTime") spentTime: Long
 ) : ViewModel() {
@@ -30,6 +31,10 @@ class ResultsViewModel @AssistedInject constructor(
 
     fun createBundleForGameFragment(): Bundle = Bundle().apply {
         putLong(TOPIC_ID_KEY, topicId)
+    }
+
+    fun createBundleForGameFragmentResults(): Bundle = Bundle().apply {
+        putParcelableArrayList(Keys.GAME_QUESTION_KEY, gameQuestions as ArrayList)
     }
 
     @AssistedFactory

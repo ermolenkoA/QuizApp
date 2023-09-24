@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
             builder.setMessage(R.string.you_shure)
                 .setPositiveButton(R.string.cancel){ _, _ -> }
                 .setNegativeButton(R.string.leave) { _, _ ->
-                        onGameFragment = false
-                        super.onBackPressed()
-                    }
+                    viewModelStore.clear()
+                    super.onBackPressed()
+                }
                 .create()
                 .show()
         } else {
