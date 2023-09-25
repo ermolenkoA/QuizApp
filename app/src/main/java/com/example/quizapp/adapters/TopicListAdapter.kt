@@ -49,6 +49,7 @@ class TopicListAdapter(private val context: Context?):
                 context?.let {
                     Glide.with(it)
                         .load(item.image)
+                        .placeholder(R.drawable.error_img)
                         .into(topicImageView)
                 }
             }

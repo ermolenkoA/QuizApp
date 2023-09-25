@@ -236,6 +236,7 @@ class GameFragment : Fragment() {
             if (imageRef != null) {
                 Glide.with(requireContext())
                     .load(imageRef)
+                    .placeholder(R.drawable.error_img)
                     .apply{
                         into(questionImageView)
                         into(fullImageView)
