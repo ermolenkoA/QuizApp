@@ -7,6 +7,8 @@ import com.example.quizapp.data.Topic
 
 
 object UtilsRu {
+    const val langKeyRu = "ru"
+    const val databaseRU = "TopicDatabaseEn"
     val dataset = arrayListOf(
         Topic(
             id = 0,

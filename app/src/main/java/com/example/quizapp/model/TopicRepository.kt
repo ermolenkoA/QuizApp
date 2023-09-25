@@ -1,12 +1,12 @@
 package com.example.quizapp.model
 
 import com.example.quizapp.data.Topic
+import kotlinx.coroutines.flow.Flow
 
 interface TopicRepository {
-    fun add(topic: Topic)
-    fun getById(id: Long): Topic?
-    fun update(topic: Topic)
+    fun add(vararg topic: Topic)
+    suspend fun getById(id: Long): Topic?
     fun remove(topic: Topic)
     fun clear()
-    fun getAll(): List<Topic>
+    suspend fun getAll(): Flow<List<Topic>>
 }

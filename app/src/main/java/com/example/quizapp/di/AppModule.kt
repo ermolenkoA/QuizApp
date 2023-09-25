@@ -1,48 +1,59 @@
 package com.example.quizapp.di
 
-import com.example.quizapp.data.Topic
+import android.content.Context
+import androidx.room.Room
+import com.example.quizapp.model.RoomTopicRepository
+import com.example.quizapp.model.TopicDao
+import com.example.quizapp.model.TopicDatabase
 import com.example.quizapp.model.TopicRepository
-import com.example.quizapp.utils.Utils
+import com.example.quizapp.utils.UtilsEn.databaseEN
+import com.example.quizapp.utils.UtilsRu.databaseRU
+import com.example.quizapp.utils.UtilsRu.langKeyRu
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
     @Provides
-    @Singleton
-    fun provideTopicRepository(): TopicRepository {
-        return object: TopicRepository {
-
-            private var dataset = Utils.dataset
-
-            override fun add(topic: Topic) {
-                dataset.add(topic)
+    fun provideRoomDatabase(@ApplicationContext context: Context): TopicDatabase {
+        val isLocaleRu = context
+            .resources
+            .configuration
+            .locales
+            .get(0)
+            .language == langKeyRu
+        return Room.databaseBuilder(
+            context,
+            TopicDatabase::class.java,
+            if(isLocaleRu) {
+                databaseRU
+            } else {
+                databaseEN
             }
+        ).build()
+    }
 
-            override fun getById(id: Long): Topic? {
-                return dataset.find { it.id == id }
-            }
+    @Provides
+    fun provideTopicDao(database: TopicDatabase): TopicDao {
+        return database.topicDao()
+    }
 
-            override fun update(topic: Topic) {
-                val index = dataset.indexOfFirst { it.id == topic.id }
-                if (index != -1) {
-                    dataset[index] = topic
-                }
-            }
+    @Provides
+    fun provideDatabaseCoroutineScope(): CoroutineScope {
+        return CoroutineScope(Dispatchers.IO)
+    }
 
-            override fun remove(topic: Topic) {
-                dataset.removeIf { topic.id == it.id }
-            }
-
-            override fun clear() {
-                dataset.clear()
-            }
-
-            override fun getAll(): List<Topic> = dataset
-        }
+    @Provides
+    fun provideRoomTopicRepository(
+        dao: TopicDao,
+        scope: CoroutineScope
+    ): TopicRepository {
+        return RoomTopicRepository(dao, scope)
     }
 }

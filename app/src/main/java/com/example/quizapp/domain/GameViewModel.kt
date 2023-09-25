@@ -2,6 +2,7 @@ package com.example.quizapp.domain
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,41 +18,42 @@ import com.example.quizapp.utils.Keys.TOPIC_ID_KEY
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 class GameViewModel @AssistedInject constructor(
     repository: TopicRepository,
+    coroutineScope: CoroutineScope,
     @Assisted gameQuestions: List<GameQuestion>?,
     @Assisted private val topicId: Long?,
     ) : ViewModel() {
 
-    private val allQuestions = gameQuestions
-        ?: createGameQuestionList(repository.getById(topicId!!))
+    private val _isLoading = MutableLiveData(false)
+
+    private var allQuestions = if(gameQuestions == null) {
+        loadTopic(repository, coroutineScope)
+        listOf()
+    } else {
+        gameQuestions
+    }
+
     private val remainingQuestions = mutableListOf<Pair<GameQuestion, Int>>().apply {
         allQuestions.forEachIndexed { index, question ->
             add(Pair(question, index))
         }
     }
     private val _currentQuestion = MutableLiveData<GameQuestion?>(
-        if (remainingQuestions.isNotEmpty()) {
-            remainingQuestions.first().first
-        } else {
-            null
-        }
+        getInitialQuestion()
     )
-    private var _currentQuestionIndex =
-        if (currentQuestion.value != null) {
-            0
-        } else {
-            -1
-        }
+    private var _currentQuestionIndex = 0
 
-    val numberOfQuestions = allQuestions.size
+    val numberOfQuestions: Int get() = allQuestions.size
     val currentQuestion: LiveData<GameQuestion?> get() = _currentQuestion
     val currentQuestionIndex: Int get() = _currentQuestionIndex
     var baseTime = 0L
     var withoutAnimation = false
     val isGameEnded = gameQuestions != null
-
+    val isLoading: LiveData<Boolean> get() = _isLoading
     fun toNextQuestion() {
         if (remainingQuestions.size > 1) {
             withoutAnimation = true
@@ -120,6 +122,20 @@ class GameViewModel @AssistedInject constructor(
             putLong(TOPIC_ID_KEY, topicId!!)
         }
 
+    private fun loadTopic(repository: TopicRepository,
+                          coroutineScope: CoroutineScope) {
+        _isLoading.value = true
+        coroutineScope.launch {
+            allQuestions = createGameQuestionList(repository.getById(topicId!!))
+            allQuestions.forEachIndexed { index, question ->
+                remainingQuestions.add(Pair(question, index))
+            }
+            _currentQuestion.postValue(getInitialQuestion())
+            _currentQuestionIndex = 0
+            _isLoading.postValue(false)
+        }
+    }
+
     private fun createGameQuestionList(topic: Topic?): List<GameQuestion> {
         var newQuestionList = listOf<GameQuestion>()
         topic?.questions?.let {questions ->
@@ -136,16 +152,12 @@ class GameViewModel @AssistedInject constructor(
         return newQuestionList.shuffled()
     }
 
-    fun prepareForResults() {
-        remainingQuestions.apply {
-            clear()
-            allQuestions.forEachIndexed { index, question ->
-                add(Pair(question, index))
-            }
-            _currentQuestionIndex = remainingQuestions.first().second
-            _currentQuestion.value = remainingQuestions.first().first
+    private fun getInitialQuestion(): GameQuestion? =
+        if (remainingQuestions.isNotEmpty()) {
+            remainingQuestions.first().first
+        } else {
+            null
         }
-    }
 
     @AssistedFactory
     interface Factory {

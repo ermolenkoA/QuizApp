@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.quizapp.R
@@ -13,10 +13,12 @@ import com.example.quizapp.adapters.TopicListAdapter
 import com.example.quizapp.databinding.FragmentTopicSelectionBinding
 import com.example.quizapp.domain.TopicSelectionViewModel
 import com.example.quizapp.utils.Keys.TOPIC_ID_KEY
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TopicSelectionFragment : Fragment() {
     private var _binding: FragmentTopicSelectionBinding? = null
-    private val viewModel: TopicSelectionViewModel by activityViewModels()
+    private val viewModel: TopicSelectionViewModel by viewModels()
     private var recyclerViewAdapter: TopicListAdapter? = null
     private val binding get() = _binding!!
 
@@ -41,6 +43,7 @@ class TopicSelectionFragment : Fragment() {
             recyclerView.layoutManager = GridLayoutManager(context, 2)
             submitButton.setOnClickListener {  }
         }
+        viewModel.getAll()
     }
 
     private fun setupObservers() {
