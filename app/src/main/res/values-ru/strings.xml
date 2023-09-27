@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="new_game">Новая игра</string>
-    <string name="continue_text">Продолжить</string>
+    <string name="create_quiz">Создать тему</string>
     <string name="start">Начать</string>
     <string name="choose_topic">Выберите тему</string>
     <string name="confirm">Подтвердить</string>
@@ -22,4 +22,5 @@
     <string name="share_results_with">Поделиться через:</string>
     <string name="text_for_share">Я набрал %d из %d очков в приложении QuizApp.\nА сколько сможешь набрать ты?</string>
     <string name="view_results">Итоги</string>
+    <string name="quiz_app_logo">QuizApp логотип</string>
 </resources>

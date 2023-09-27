@@ -6,6 +6,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainScreenFragment">
 
+    <ImageView
+        android:id="@+id/logo_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/head_img"
+        android:contentDescription="@string/quiz_app_logo" />
+
     <TextView
         android:id="@+id/app_name_text_view"
         android:layout_width="wrap_content"
@@ -13,32 +26,38 @@
         android:layout_marginTop="30dp"
         android:text="@string/app_name"
         android:textSize="@dimen/h1TextSize"
+        android:fontFamily="@font/gagalin"
+        style="@style/Widget.QuizApp.TitleTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/logo_image_view" />
 
     <Button
         android:id="@+id/new_game_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/new_game"
-        android:textSize="@dimen/h2TextSize"
+        android:textSize="@dimen/mainScreenButtonsTextSize"
+        android:fontFamily="@font/gagalin"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_name_text_view" />
+        app:layout_constraintBottom_toTopOf="@id/create_topic_button" />
 
     <Button
-        android:id="@+id/continue_button"
+        android:id="@+id/create_topic_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/continue_text"
-        android:textSize="@dimen/h2TextSize"
-        android:visibility="invisible"
+        android:layout_marginBottom="70dp"
+        android:text="@string/create_quiz"
+        android:textSize="@dimen/mainScreenButtonsTextSize"
+        android:fontFamily="@font/gagalin"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_game_button" />
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

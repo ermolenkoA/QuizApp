@@ -3,7 +3,7 @@
     <string name="questions_count" translatable="false">%d/%d</string>
     <string name="questions_time" translatable="false">%d:%d</string>
     <string name="new_game">New game</string>
-    <string name="continue_text">Continue</string>
+    <string name="create_quiz">Create quiz</string>
     <string name="start">Start</string>
     <string name="choose_topic">Choose a topic</string>
     <string name="confirm">Confirm</string>
@@ -24,4 +24,6 @@
     <string name="share_results_with">Share with:</string>
     <string name="text_for_share">I scored %d out of %d points in the QuizApp.\nHow much can you get?</string>
     <string name="view_results">View Results</string>
+    <string name="quiz_app_logo">QuizApp Logo</string>
+
 </resources>

@@ -7,5 +7,6 @@
     <dimen name="answerTextSize">20sp</dimen>
     <dimen name="resultButtonTextSize">25sp</dimen>
     <dimen name="confirmButtonTextSize">25sp</dimen>
-    <dimen name="topicTextSize">25sp</dimen>
+    <dimen name="topicTextSize">20sp</dimen>
+    <dimen name="mainScreenButtonsTextSize">30sp</dimen>
 </resources>

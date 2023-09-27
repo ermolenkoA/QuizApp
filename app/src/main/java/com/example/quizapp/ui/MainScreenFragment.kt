@@ -1,11 +1,15 @@
 package com.example.quizapp.ui
 
+import android.animation.AnimatorInflater
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.signature.ObjectKey
 import com.example.quizapp.R
 import com.example.quizapp.databinding.FragmentMainScreenBinding
 

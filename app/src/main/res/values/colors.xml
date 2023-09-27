@@ -5,4 +5,15 @@
     <color name="wrong">#d64242</color>
     <color name="correct">#69db5a</color>
     <color name="full_image_background">#B0000000</color>
+    <color name="primary">#7796CB</color>
+    <color name="primary_light">#A3BCF9</color>
+    <color name="primary_dark">#576490</color>
+    <color name="secondary">#DADAF5</color>
+    <color name="secondary_light">#B6B6DF</color>
+    <color name="secondary40_dark">#9090C9</color>
+    <color name="text_light">#27292F</color>
+    <color name="text_dark">#BABECB</color>
+    <color name="background_light">#FFFFFFFF</color>
+    <color name="background_dark">#2B312F</color>
+
 </resources>

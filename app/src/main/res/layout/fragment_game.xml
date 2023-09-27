@@ -15,12 +15,14 @@
        android:layout_marginTop="10dp"
        android:text="@string/questions_count"
        android:textSize="@dimen/questionInfoTextSize"
+       android:textColor="?attr/colorOnBackground"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent"
        tools:text="4/10"/>
 
    <Chronometer
        android:id="@+id/chronometer"
+       android:textColor="?attr/colorOnBackground"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginTop="10dp"
@@ -49,6 +51,7 @@
        android:layout_margin="20dp"
        android:textAlignment="center"
        android:textSize="@dimen/questionTitleTextSize"
+       android:textColor="?attr/colorOnBackground"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@id/question_image_view"
@@ -71,6 +74,8 @@
           android:layout_height="wrap_content"
           android:text="@string/answerA"
           android:textSize="@dimen/answerTextSize"
+          android:background="@drawable/radio_button_bg"
+          android:textColor="?attr/colorOnBackground"
           tools:text="A: Some answer" />
 
       <RadioButton
@@ -79,6 +84,7 @@
           android:layout_height="wrap_content"
           android:text="@string/answerB"
           android:textSize="@dimen/answerTextSize"
+          android:textColor="?attr/colorOnBackground"
           tools:text="B: Another answer"/>
 
       <RadioButton
@@ -87,6 +93,7 @@
           android:layout_height="wrap_content"
           android:text="@string/answerC"
           android:textSize="@dimen/answerTextSize"
+          android:textColor="?attr/colorOnBackground"
           tools:text="C: Next answer"/>
 
       <RadioButton
@@ -95,6 +102,7 @@
           android:layout_height="wrap_content"
           android:text="@string/answerD"
           android:textSize="@dimen/answerTextSize"
+          android:textColor="?attr/colorOnBackground"
           tools:text="D: Real answer"/>
 
    </RadioGroup>
@@ -146,7 +154,7 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:background="@color/white"
-       android:visibility="visible"
+       android:visibility="gone"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
