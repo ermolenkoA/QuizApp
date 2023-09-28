@@ -4,4 +4,12 @@
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
+    <style name="Widget.QuizApp.BlueButton" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/intro</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:background">@drawable/start_button_bg</item>
+        <item name="android:textSize">@dimen/h2TextSize</item>
+
+    </style>
+
 </resources>

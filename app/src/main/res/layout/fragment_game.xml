@@ -18,6 +18,7 @@
        android:textColor="?attr/colorOnBackground"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent"
+       android:fontFamily="@font/fira_sans_semibold"
        tools:text="4/10"/>
 
    <Chronometer
@@ -28,21 +29,35 @@
        android:layout_marginTop="10dp"
        android:layout_marginEnd="10dp"
        android:textSize="@dimen/questionInfoTextSize"
+       android:fontFamily="@font/fira_sans_semibold"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
 
-   <ImageView
-       android:id="@+id/question_image_view"
+   <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="0dp"
-       android:layout_height="0dp"
-       android:layout_marginTop="20dp"
-       android:importantForAccessibility="no"
-       app:layout_constraintDimensionRatio="1:1"
-       app:layout_constraintEnd_toEndOf="parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/main_image_constraint_layout"
        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toBottomOf="@id/question_number_text_view"
-       app:layout_constraintWidth_percent="0.6"
-       tools:src="@drawable/default_image" />
+       android:minHeight="100dp">
+
+      <ImageView
+          android:id="@+id/question_image_view"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginTop="20dp"
+          android:importantForAccessibility="no"
+          app:layout_constraintDimensionRatio="1:1"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintWidth_percent="0.6"
+          tools:src="@drawable/default_image" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
 
    <TextView
        android:id="@+id/question_title_text_view"
@@ -52,9 +67,10 @@
        android:textAlignment="center"
        android:textSize="@dimen/questionTitleTextSize"
        android:textColor="?attr/colorOnBackground"
+       android:fontFamily="@font/fira_sans_semibold"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/question_image_view"
+       app:layout_constraintTop_toBottomOf="@id/main_image_constraint_layout"
        tools:text="There are two chairs, which one will you sit on?" />
 
    <RadioGroup
@@ -74,7 +90,8 @@
           android:layout_height="wrap_content"
           android:text="@string/answerA"
           android:textSize="@dimen/answerTextSize"
-          android:background="@drawable/radio_button_bg"
+          android:fontFamily="@font/fira_sans_regular"
+          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="A: Some answer" />
 
@@ -84,6 +101,8 @@
           android:layout_height="wrap_content"
           android:text="@string/answerB"
           android:textSize="@dimen/answerTextSize"
+          android:fontFamily="@font/fira_sans_regular"
+          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="B: Another answer"/>
 
@@ -93,6 +112,8 @@
           android:layout_height="wrap_content"
           android:text="@string/answerC"
           android:textSize="@dimen/answerTextSize"
+          android:fontFamily="@font/fira_sans_regular"
+          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="C: Next answer"/>
 
@@ -102,6 +123,8 @@
           android:layout_height="wrap_content"
           android:text="@string/answerD"
           android:textSize="@dimen/answerTextSize"
+          android:fontFamily="@font/fira_sans_regular"
+          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="D: Real answer"/>
 
@@ -114,9 +137,11 @@
        android:text="@string/confirm"
        android:textSize="@dimen/confirmButtonTextSize"
        app:layout_constraintBottom_toBottomOf="parent"
-       android:layout_marginBottom="10dp"
+       android:layout_marginBottom="20dp"
+       android:visibility="invisible"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
+       style="@style/Widget.QuizApp.BlueButton"
        app:layout_constraintWidth_percent="0.6"/>
 
    <androidx.constraintlayout.widget.ConstraintLayout

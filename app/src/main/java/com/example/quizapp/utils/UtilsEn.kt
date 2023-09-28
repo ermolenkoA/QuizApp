@@ -89,13 +89,13 @@ object UtilsEn {
         ),
         Topic(
             id = 1,
-            title = "Автомобили",
+            title = "Cars",
             image = getUrlString(R.drawable.car_img),
-            about = "В данной викторине вам нужно отвечать на вопросы по автомобильной тематике.",
+            about = "In this quiz you need to answer questions about cars.",
             questions = arrayListOf(
                 Question(
                     id = 0,
-                    title = "Какая марка автомобиля является самой продаваемой в мире?",
+                    title = "Which car brand is the best-selling car in the world?",
                     image = null,
                     fakeAnswers = arrayListOf(
                         "Volkswagen",
@@ -109,7 +109,7 @@ object UtilsEn {
                 ),
                 Question(
                     id = 1,
-                    title = "Какая марка автомобиля является самой дорогой в мире?",
+                    title = "Which car brand is the most expensive in the world?",
                     image = null,
                     fakeAnswers = arrayListOf(
                         "Bugatti",
@@ -123,7 +123,7 @@ object UtilsEn {
                 ),
                 Question(
                     id = 2,
-                    title = "Какой автомобиль не является немецким?",
+                    title = "Which car is not German?",
                     image = null,
                     fakeAnswers = arrayListOf(
                         "Volkswagen",
