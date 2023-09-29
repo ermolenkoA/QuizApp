@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.bumptech.glide.signature.ObjectKey
 import com.example.quizapp.R
 import com.example.quizapp.databinding.FragmentMainScreenBinding
@@ -31,6 +32,9 @@ class MainScreenFragment : Fragment() {
             newGameButton.setOnClickListener {
                 findNavController().navigate(R.id.topicSelectionFragment)
             }
+            Glide.with(requireContext())
+                .load(R.drawable.homer_gif)
+                .into(homerImageView)
         }
     }
 
