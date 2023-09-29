@@ -65,6 +65,8 @@ class GameFragment : Fragment() {
                     answersRadioGroup.clearCheck()
                     if (!viewModel.isGameEnded)
                         confirmButton.visibility = View.INVISIBLE
+                    else
+                        field?.isClickable = false
                 } else {
                     value.isChecked = true
                     if (!viewModel.isGameEnded)
@@ -202,9 +204,9 @@ class GameFragment : Fragment() {
 
     private fun radioButtonClicked(button: CustomRadioButton) {
         with(binding){
-            if(checkedRadioButton == button) {
+            checkedRadioButton = if(checkedRadioButton == button) {
                 viewModel.choseOption(null)
-                checkedRadioButton = null
+                null
             } else {
                 viewModel.choseOption(
                     when(button) {
@@ -214,7 +216,7 @@ class GameFragment : Fragment() {
                         else -> Option.D
                     }
                 )
-                checkedRadioButton = button
+                button
             }
         }
     }
@@ -337,6 +339,7 @@ class GameFragment : Fragment() {
                     it.isClickable = false
                 }
             }
+            viewModel.withAnimation.value = false
         }
     }
 
@@ -354,5 +357,6 @@ class GameFragment : Fragment() {
             )
         )
         radioButton.setTextColor(ContextCompat.getColor(requireContext(), color))
+
     }
 }

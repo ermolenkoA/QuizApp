@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/results"
-        android:textSize="@dimen/h2TextSize"
+        style="@style/Widget.QuizApp.ResultTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -21,10 +21,10 @@
         android:id="@+id/time_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="35dp"
         android:layout_marginHorizontal="30dp"
         android:text="@string/results_time"
-        android:textSize="@dimen/h2TextSize"
+        style="@style/Widget.QuizApp.ResultTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/answers_text_view"
@@ -37,61 +37,82 @@
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="30dp"
         android:text="@string/correct_answers"
-        android:textSize="@dimen/h2TextSize"
+        style="@style/Widget.QuizApp.ResultTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/time_text_view" />
 
     <Button
         android:id="@+id/view_results_button"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:lines="1"
         android:text="@string/view_results"
-        android:textSize="@dimen/resultButtonTextSize"
+        style="@style/Widget.QuizApp.ResultButtonMain"
         app:layout_constraintTop_toBottomOf="@id/answers_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.8" />
+        app:layout_constraintHorizontal_bias="0.9"/>
 
-    <Button
-        android:id="@+id/share_results_button"
+    <ImageView
+        android:id="@+id/grade_image_view"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:lines="1"
-        android:text="@string/share_results"
-        android:textSize="@dimen/resultButtonTextSize"
-        app:layout_constraintBottom_toTopOf="@id/try_again_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:rotation="-15"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/view_results_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.8" />
-
-    <Button
-        android:id="@+id/try_again_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:lines="1"
-        android:text="@string/try_again"
-        android:textSize="@dimen/resultButtonTextSize"
-        app:layout_constraintBottom_toTopOf="@id/to_main_screen_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.8" />
+        app:layout_constraintWidth_percent="0.35"
+        app:layout_constraintDimensionRatio="1:1"
+        tools:src="@drawable/grade_a_plus_img"
+        android:importantForAccessibility="no"/>
 
-    <Button
-        android:id="@+id/to_main_screen_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:lines="1"
-        android:text="@string/to_main_screen"
-        android:textSize="@dimen/resultButtonTextSize"
+    <LinearLayout
+        android:id="@+id/buttons_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_max="250dp"
+        app:layout_constraintTop_toBottomOf="@id/grade_image_view"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.8" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintVertical_bias="0.8"
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/share_results_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="15dp"
+            android:lines="1"
+            android:text="@string/share_results"
+            style="@style/Widget.QuizApp.ResultButtonBlue"
+            android:layout_weight="0.33"/>
+
+        <Button
+            android:id="@+id/try_again_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="15dp"
+            android:lines="1"
+            android:text="@string/try_again"
+            style="@style/Widget.QuizApp.ResultButtonBlue"
+            android:layout_weight="0.33" />
+
+        <Button
+            android:id="@+id/to_main_screen_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:lines="1"
+            android:text="@string/to_main_screen"
+            android:layout_weight="0.33"
+            style="@style/Widget.QuizApp.ResultButtonBlue" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

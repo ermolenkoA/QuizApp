@@ -29,6 +29,8 @@ class ResultsViewModel @AssistedInject constructor(
         }
     }.size
 
+    var animationEnded = false
+
     fun createBundleForGameFragment(): Bundle = Bundle().apply {
         putLong(TOPIC_ID_KEY, topicId)
     }

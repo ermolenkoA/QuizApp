@@ -4,11 +4,40 @@
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
-    <style name="Widget.QuizApp.BlueButton" parent="Widget.MaterialComponents.TextView">
+    <style name="Widget.QuizApp.BlueButton" parent="Widget.MaterialComponents.Button">
         <item name="android:fontFamily">@font/intro</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:background">@drawable/start_button_bg</item>
         <item name="android:textSize">@dimen/h2TextSize</item>
+    </style>
+
+    <style name="Widget.QuizApp.SubmitButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/submit_button_bg</item>
+        <item name="android:textColor">?attr/colorPrimaryContainer</item>
+        <item name="android:textSize">@dimen/resultButtonTextSize</item>
+        <item name="fontFamily">@font/fira_sans_semibold</item>
+        <item name="android:stateListAnimator">@animator/submit_button_anim</item>
+    </style>
+
+    <style name="Widget.QuizApp.ResultButtonMain" parent="Widget.AppCompat.Button">
+        <item name="android:background">@null</item>
+        <item name="fontFamily">@font/fira_sans_semibold</item>
+        <item name="android:paddingHorizontal">30dp</item>
+        <item name="android:textColor">@color/cancel</item>
+        <item name="android:textSize">@dimen/resultButtonTextSize</item>
+        <item name="android:stateListAnimator">@animator/submit_button_anim</item>
+    </style>
+
+    <style name="Widget.QuizApp.ResultButtonBlue" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/intro</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:background">@drawable/start_button_bg</item>
+        <item name="android:textSize">@dimen/resultButtonTextSize</item>
+    </style>
+
+    <style name="Widget.QuizApp.ResultTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/h2TextSize</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
 </resources>

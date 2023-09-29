@@ -8,6 +8,8 @@
     <color name="correct">#69db5a</color>
     <color name="full_image_background">#B0000000</color>
     <color name="primary">#7796CB</color>
+    <color name="primary_container_light">#4258E8</color>
+    <color name="primary_container_dark">#2676FF</color>
     <color name="primary_light">#A3BCF9</color>
     <color name="primary_dark">#576490</color>
     <color name="secondary">#DADAF5</color>

@@ -138,17 +138,16 @@
        android:textSize="@dimen/confirmButtonTextSize"
        app:layout_constraintBottom_toBottomOf="parent"
        android:layout_marginBottom="20dp"
-       android:visibility="invisible"
+       android:visibility="visible"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
-       style="@style/Widget.QuizApp.BlueButton"
+       style="@style/Widget.QuizApp.SubmitButton"
        app:layout_constraintWidth_percent="0.6"/>
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:id="@+id/image_constraint_layout"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:background="@color/full_image_background"
        android:visibility="gone"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"

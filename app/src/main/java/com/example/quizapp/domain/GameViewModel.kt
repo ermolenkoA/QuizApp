@@ -30,10 +30,13 @@ class GameViewModel @AssistedInject constructor(
 
     private val _isLoading = MutableLiveData(false)
 
+    val withAnimation = MutableLiveData(true)
+
     private var allQuestions = if(gameQuestions == null) {
         loadTopic(repository, coroutineScope)
         listOf()
     } else {
+        withAnimation.value = false
         gameQuestions
     }
 
@@ -55,7 +58,6 @@ class GameViewModel @AssistedInject constructor(
     var baseTime = 0L
     val isGameEnded = gameQuestions != null
     val isLoading: LiveData<Boolean> get() = _isLoading
-    val withAnimation = MutableLiveData(true)
     fun toNextQuestion() {
         if (remainingQuestions.size > 1) {
             withAnimation.value = false
