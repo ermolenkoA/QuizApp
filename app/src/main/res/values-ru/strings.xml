@@ -23,4 +23,5 @@
     <string name="text_for_share">Я набрал %d из %d очков в приложении QuizApp.\nА сколько сможешь набрать ты?</string>
     <string name="view_results">Итоги</string>
     <string name="quiz_app_logo">QuizApp логотип</string>
+    <string name="warning">Внимание</string>
 </resources>

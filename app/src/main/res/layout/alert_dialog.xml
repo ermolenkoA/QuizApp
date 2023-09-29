@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/alert_dialog_bg"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/you_shure"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/fira_sans_semibold"
+            android:textSize="@dimen/alertTextSize"
+            android:textColor="?attr/colorOnBackground"
+            android:paddingVertical="5dp"
+            android:drawablePadding="10dp"
+            app:drawableStartCompat="@drawable/warning_img" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop ="5dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.33"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/leave_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/leave"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textSize="@dimen/alertTextSize"
+                android:fontFamily="@font/fira_sans_semibold"
+                android:text="@string/leave" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textSize="@dimen/alertTextSize"
+                android:textColor="@color/cancel"
+                android:fontFamily="@font/fira_sans_semibold"
+                android:text="@string/cancel" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

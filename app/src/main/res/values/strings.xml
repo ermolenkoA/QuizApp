@@ -25,5 +25,6 @@
     <string name="text_for_share">I scored %d out of %d points in the QuizApp.\nHow much can you get?</string>
     <string name="view_results">View Results</string>
     <string name="quiz_app_logo">QuizApp Logo</string>
+    <string name="warning">Warning</string>
 
 </resources>

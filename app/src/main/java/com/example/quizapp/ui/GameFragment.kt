@@ -1,6 +1,5 @@
 package com.example.quizapp.ui
 
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -10,8 +9,6 @@ import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.RadioButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -28,6 +25,7 @@ import com.example.quizapp.domain.GameViewModel
 import com.example.quizapp.utils.Keys
 import com.example.quizapp.utils.Keys.TOPIC_ID_KEY
 import com.example.quizapp.utils.OnSwipeTouchListener
+import com.example.quizapp.views.CustomRadioButton
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -60,7 +58,7 @@ class GameFragment : Fragment() {
         )
     }
 
-    private var checkedRadioButton: RadioButton? = null
+    private var checkedRadioButton: CustomRadioButton? = null
         set(value) {
             with(binding){
                 if(value == null) {
@@ -109,24 +107,27 @@ class GameFragment : Fragment() {
         setImageListener()
         setRadioButtonsListeners()
         setupOnSwipeListener()
-        setRadioGroupListener()
         setConfirmButtonClickListener()
     }
+
     private fun setupViewsForResults() {
         setImageListener()
         setupOnSwipeListener()
-        setRadioGroupListener()
         hideUselessViews()
     }
 
     private fun setupObservers() {
-        viewModel.isLoading.observe(viewLifecycleOwner) {isLoading ->
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             if(isLoading){
                 binding.progressBarConstraintLayout.visibility = View.VISIBLE
             } else {
                 binding.progressBarConstraintLayout.visibility = View.INVISIBLE
                 startTimer()
             }
+        }
+
+        viewModel.withAnimation.observe(viewLifecycleOwner) {
+            binding.answersRadioGroup.changeWithAnimation = it
         }
 
         viewModel.currentQuestion.observe(viewLifecycleOwner) {
@@ -142,6 +143,8 @@ class GameFragment : Fragment() {
                         viewModel.numberOfQuestions
                     )
                     setupAnswers(question.answers)
+                    if (viewModel.withAnimation.value == false)
+                        viewModel.withAnimation.value = true
                 }
             }
             if(it == null && !viewModel.isLoading.value!!) {
@@ -185,28 +188,24 @@ class GameFragment : Fragment() {
 
     private fun setRadioButtonsListeners() {
         with(binding) {
-            optionARadioButton.setOnClickListener{
-                radioButtonClicked(it as RadioButton)
-            }
-            optionBRadioButton.setOnClickListener{
-                radioButtonClicked(it as RadioButton)
-            }
-            optionCRadioButton.setOnClickListener{
-                radioButtonClicked(it as RadioButton)
-            }
-            optionDRadioButton.setOnClickListener{
-                radioButtonClicked(it as RadioButton)
-            }
+            arrayOf(optionARadioButton,
+                optionBRadioButton,
+                optionCRadioButton,
+                optionDRadioButton)
+                .forEach { rb ->
+                    rb.setOnClickListener{
+                        radioButtonClicked(rb)
+                    }
+                }
         }
     }
 
-    private fun radioButtonClicked(button: RadioButton) {
+    private fun radioButtonClicked(button: CustomRadioButton) {
         with(binding){
             if(checkedRadioButton == button) {
                 viewModel.choseOption(null)
                 checkedRadioButton = null
             } else {
-                checkedRadioButton = button
                 viewModel.choseOption(
                     when(button) {
                         optionARadioButton -> Option.A
@@ -215,16 +214,7 @@ class GameFragment : Fragment() {
                         else -> Option.D
                     }
                 )
-            }
-        }
-    }
-
-
-    private fun setRadioGroupListener() {
-        binding.answersRadioGroup.setOnCheckedChangeListener { radioGroup, _ ->
-            if (viewModel.withoutAnimation) {
-                radioGroup.jumpDrawablesToCurrentState()
-                viewModel.withoutAnimation = false
+                checkedRadioButton = button
             }
         }
     }
@@ -272,7 +262,6 @@ class GameFragment : Fragment() {
                 answers.getAnswerText(Option.D),
             )
             answers.answerOption?.let {currentAnswer ->
-                viewModel.withoutAnimation = true
                 if(!viewModel.isGameEnded){
                     selectRadioButton(currentAnswer)
                 } else {

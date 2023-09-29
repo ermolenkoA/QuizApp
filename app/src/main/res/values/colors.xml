@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="leave">#ff5c61</color>
+    <color name="cancel">#2390d9</color>
     <color name="wrong">#d64242</color>
     <color name="correct">#69db5a</color>
     <color name="full_image_background">#B0000000</color>

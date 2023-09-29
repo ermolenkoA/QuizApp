@@ -42,21 +42,23 @@ class GameViewModel @AssistedInject constructor(
             add(Pair(question, index))
         }
     }
+
     private val _currentQuestion = MutableLiveData<GameQuestion?>(
         getInitialQuestion()
     )
+
     private var _currentQuestionIndex = 0
 
     val numberOfQuestions: Int get() = allQuestions.size
     val currentQuestion: LiveData<GameQuestion?> get() = _currentQuestion
     val currentQuestionIndex: Int get() = _currentQuestionIndex
     var baseTime = 0L
-    var withoutAnimation = false
     val isGameEnded = gameQuestions != null
     val isLoading: LiveData<Boolean> get() = _isLoading
+    val withAnimation = MutableLiveData(true)
     fun toNextQuestion() {
         if (remainingQuestions.size > 1) {
-            withoutAnimation = true
+            withAnimation.value = false
             val iterator = remainingQuestions.listIterator(
                 remainingQuestions.indexOfFirst { pair ->
                     pair.second == currentQuestionIndex
@@ -77,7 +79,7 @@ class GameViewModel @AssistedInject constructor(
 
     fun toPreviousQuestion() {
         if (remainingQuestions.size > 1) {
-            withoutAnimation = true
+            withAnimation.value = false
             val iterator = remainingQuestions.listIterator(
                 remainingQuestions.indexOfFirst { pair ->
                     pair.second == currentQuestionIndex

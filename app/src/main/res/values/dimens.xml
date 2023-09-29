@@ -8,5 +8,6 @@
     <dimen name="resultButtonTextSize">25sp</dimen>
     <dimen name="confirmButtonTextSize">25sp</dimen>
     <dimen name="topicTextSize">20sp</dimen>
+    <dimen name="alertTextSize">16sp</dimen>
     <dimen name="mainScreenButtonsTextSize">30sp</dimen>
 </resources>

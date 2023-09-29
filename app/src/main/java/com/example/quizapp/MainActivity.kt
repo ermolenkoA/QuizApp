@@ -2,9 +2,8 @@ package com.example.quizapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AlertDialog
 import com.example.quizapp.model.TopicRepository
+import com.example.quizapp.views.CustomAlertDialog
 import com.example.quizapp.utils.UtilsEn
 import com.example.quizapp.utils.UtilsRu
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,15 +30,10 @@ class MainActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (onGameFragment) {
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage(R.string.you_shure)
-                .setPositiveButton(R.string.cancel){ _, _ -> }
-                .setNegativeButton(R.string.leave) { _, _ ->
-                    viewModelStore.clear()
-                    super.onBackPressed()
-                }
-                .create()
-                .show()
+            CustomAlertDialog(this) {
+                viewModelStore.clear()
+                super.onBackPressed()
+            }.show()
         } else {
             super.onBackPressed()
         }

@@ -73,7 +73,7 @@
        app:layout_constraintTop_toBottomOf="@id/main_image_constraint_layout"
        tools:text="There are two chairs, which one will you sit on?" />
 
-   <RadioGroup
+   <com.example.quizapp.views.CustomRadioGroup
        android:id="@+id/answers_radio_group"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
@@ -84,51 +84,51 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent">
 
-      <RadioButton
+      <com.example.quizapp.views.CustomRadioButton
           android:id="@+id/option_a_radio_button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/answerA"
+          tools:button="@drawable/radio_button_bg"
           android:textSize="@dimen/answerTextSize"
           android:fontFamily="@font/fira_sans_regular"
-          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="A: Some answer" />
 
-      <RadioButton
+      <com.example.quizapp.views.CustomRadioButton
           android:id="@+id/option_b_radio_button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/answerB"
+          tools:button="@drawable/radio_button_bg"
           android:textSize="@dimen/answerTextSize"
           android:fontFamily="@font/fira_sans_regular"
-          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="B: Another answer"/>
 
-      <RadioButton
+      <com.example.quizapp.views.CustomRadioButton
           android:id="@+id/option_c_radio_button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/answerC"
+          tools:button="@drawable/radio_button_bg"
           android:textSize="@dimen/answerTextSize"
           android:fontFamily="@font/fira_sans_regular"
-          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="C: Next answer"/>
 
-      <RadioButton
+      <com.example.quizapp.views.CustomRadioButton
           android:id="@+id/option_d_radio_button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/answerD"
+          tools:button="@drawable/radio_button_bg"
           android:textSize="@dimen/answerTextSize"
           android:fontFamily="@font/fira_sans_regular"
-          android:button="@drawable/radio_button_bg"
           android:textColor="?attr/colorOnBackground"
           tools:text="D: Real answer"/>
 
-   </RadioGroup>
+   </com.example.quizapp.views.CustomRadioGroup>
 
    <Button
        android:id="@+id/confirm_button"
