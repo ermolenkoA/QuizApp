@@ -53,7 +53,7 @@ class ResultsFragment : Fragment() {
 
     companion object {
         private const val defaultDelay = 300L
-        private const val smallUpdateDuration = 90L
+        private const val smallUpdateDuration = 70L
         private const val maxUpdateDuration = 2000L
         private const val maxElementForUpdate = maxUpdateDuration/smallUpdateDuration
         private const val textViewFadeDuration = 300L
@@ -97,6 +97,7 @@ class ResultsFragment : Fragment() {
             viewModel.correctAnswersCount,
             viewModel.numberOfQuestions
         )
+        setImage()
         setButtonsListeners()
     }
 
